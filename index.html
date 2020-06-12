@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <style>
+      * {
+      box-sizing: border-box;
+      }
+
+      .card-wrapper {
+      float: left;
+      width: 50%;
+      }
+
+      .card {
+      border-style: groove
+      }
+
+      #empty-card {
+      display:none;
+      }
+
+      #card-wrapper-left {
+      text-align:right;
+      }
+
+      .card-row {
+         width=700px;
+      }
+
+      .card-row::after {
+      content: "";
+      clear: both;
+      display: table;
+      }
+
+      #explanation {
+      display:none
+      }
+
+      .gift {
+      border-style:groove;
+      width:350px;
+      text-align:center;
+      padding:5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Yoooo it's ASHLEY'S BIRTHDAY</h1>
+
+    <p>A card for you (click to open):</p>
+    <div class="card-row" width=700>
+      <div class="card-wrapper" id="card-wrapper-left">
+        <img class="card" height=500 width=350 id="empty-card" onclick="changeCard()">
+      </div>
+      <div class="card-wrapper">
+        <img height=500 width=350 onclick="changeCard()" id="card" class="card" src="card-outside.jpg">
+      </div>
+    </div>
+
+    <p>And a socially distant gift (also click to open):</p>
+    <div class="gift">
+      <img id="gift" src="gift-wrapped.jpg" height=350 width=300 onclick="changeGift()">
+    </br>
+      <p id="explanation">Click <a href="https://www.amazon.com/Stranger-Planet-Strange-Nathan-Pyle/dp/0063022605/">here</a> for Amazon link.<br>(It's a preorder bc it doesn't come out for another couple of days. Also pls tell me if you want the ebook or the hard copy, idk if it's hard to get packages rn.)</p>
+    </div>
+    <script>
+    var cardOutside = true
+    function changeCard() {
+        if (!cardOutside) {
+            cardOutside = true
+            document.getElementById("empty-card").style.display = "none"
+            document.getElementById("card").src = "card-outside.jpg";
+        } else {
+            cardOutside = false
+            document.getElementById("empty-card").style.display = "inline"
+            document.getElementById("card").src = "card-inside.jpeg"
+        }
+    }
+    var giftOutside = true
+    function changeGift() {
+        if (!giftOutside) {
+            giftOutside = true
+            document.getElementById("explanation").style.display = "none"
+            document.getElementById("gift").src = "gift-wrapped.jpg";
+        } else {
+            giftOutside = false
+            document.getElementById("explanation").style.display = "inline"
+            document.getElementById("gift").src = "stranger-planet.jpg"
+        }
+    }
+</script>
+
+  </body>
+</html>
